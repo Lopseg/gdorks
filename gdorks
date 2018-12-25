@@ -1,0 +1,24 @@
+#!/usr/bin/python
+import sys
+
+print ' G DORKER \n'
+
+if len(sys.argv) < 2:
+	print 'Usage: ./gdorks target.com'
+	sys.exit(0)
+
+target = sys.argv[1]
+
+with open(target.split('.')[0]+'.gdorks','w') as target_file:
+	target_file.write("\n\tDorks for searching extensions \n\n")
+	for ext in ['txt', 'pdf', 'xml', 'xlsm', 'php', 'json', 'jsp', 'inc', 'log', 'dat', 'cgi', 'cfg', 'conf' ]:
+		target_file.write('ext: '+ext+' site:'+target+'\n')
+	target_file.write("\n\tDorks for seraching for parameters\n\n")
+	for parameter in [ '?b=','?channel=','?chapter=','?cmd=','?content=','?dir=', '?file=', '?path=', '?go=','?goto=','?header=','?ir=','?loader=' ,'?read=', '?url=' ,'?u=', '?redirect_url=', '?id=',  '?var=', '?x=','?load=']:
+		target_file.write("inurl:"+parameter+' site:'+target+'\n')
+
+print '\n DONE \n'
+
+
+
+
